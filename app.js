@@ -115,7 +115,7 @@ app.use((err,req,res,next)=>{
 });
 
 //custom express error for any route that doesn't exists in our application
-app.all("{0,}", (req,res,next)=>{
+app.all("*", (req,res,next)=>{
     next(new ExpressError(404,"Page Not Found..."));
 });
 
