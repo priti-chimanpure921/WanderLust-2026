@@ -99,6 +99,10 @@ app.use((req,res,next)=>{
 //     res.send(registeredUser);
 // });
 
+app.get("/",(req,res)=>{
+    res.send("I am root!!!");
+});
+
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
 app.use("/",userRouter);
@@ -112,10 +116,6 @@ app.use((err,req,res,next)=>{
 //custom express error for any route that doesn't exists in our application
 app.all("{0,}", (req,res,next)=>{
     next(new ExpressError(404,"Page Not Found..."));
-});
-
-app.get("/",(req,res)=>{
-    res.send("I am root!!!");
 });
 
 app.listen(8080,()=>{
