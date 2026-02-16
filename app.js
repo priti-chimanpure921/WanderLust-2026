@@ -7,6 +7,7 @@ console.log(require("dotenv").config());
 // console.log(process.env);
 
 // Start your server
+const PORT = process.env.PORT || 8080;
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -118,6 +119,6 @@ app.all("{0,}", (req,res,next)=>{
     next(new ExpressError(404,"Page Not Found..."));
 });
 
-app.listen(8080,()=>{
-    console.log("Listening to port 8080...");
+app.listen(PORT,()=>{
+    console.log(`Listening to port ${PORT}`);
 });
