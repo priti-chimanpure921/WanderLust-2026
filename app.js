@@ -115,9 +115,14 @@ app.use((err,req,res,next)=>{
 });
 
 //custom express error for any route that doesn't exists in our application
-app.all("*", (req,res,next)=>{
-    next(new ExpressError(404,"Page Not Found..."));
+// app.all("*", (req,res,next)=>{
+//     next(new ExpressError(404,"Page Not Found..."));
+// });
+
+app.all("*", (req, res, next) => {
+    next(new ExpressError(404, "Page Not Found..."));
 });
+
 
 app.listen(PORT,()=>{
     console.log(`Listening to port ${PORT}`);
